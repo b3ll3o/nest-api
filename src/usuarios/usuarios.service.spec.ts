@@ -23,7 +23,24 @@ describe('UsuariosService', () => {
   test('deve receber um NovoUsuarioDto e retorna um UsuarioCadastradoDto', () => {
     const novoUsuario = new NovoUsuarioDto(EMAIL, SENHA)
     const usuario = service.adicionaNovoUsuario(novoUsuario)
+    
     expect(usuario.email).toBe(EMAIL)
     expect(usuario.id).toBeDefined()
+  })
+
+  // teste email
+  test('deve jogar um Error caso email seja undefined', () => {
+    const novoUsuario = new NovoUsuarioDto(undefined, SENHA)
+    expect(() => service.adicionaNovoUsuario(novoUsuario)).toThrowError()
+  })
+
+  test('deve jogar um Error caso email seja null', () => {
+    const novoUsuario = new NovoUsuarioDto(null, SENHA)
+    expect(() => service.adicionaNovoUsuario(novoUsuario)).toThrowError()
+  })
+
+  test('deve jogar um Error caso email seja vazio', () => {
+    const novoUsuario = new NovoUsuarioDto('', SENHA)
+    expect(() => service.adicionaNovoUsuario(novoUsuario)).toThrowError()
   })
 });
