@@ -73,10 +73,9 @@ describe('UsuariosService', () => {
     const novoUsuario = new NovoUsuarioDto(EMAIL, SENHA)
     service.adicionaNovoUsuario(novoUsuario) 
     const novoUsuario2 = new NovoUsuarioDto('outro@outro.com', SENHA)
-    service.adicionaNovoUsuario(novoUsuario2) 
-    const usuarios = service.listaUsuarios()
-    expect(usuarios[1].id).toBe(2)
-    expect(usuarios[1].email).toBe('outro@outro.com')
+    const usuario = service.adicionaNovoUsuario(novoUsuario2) 
+    expect(usuario.id).toBe(2)
+    expect(usuario.email).toBe('outro@outro.com')
   })
 
   test('não deve poder adicionar dois usuarios com mesmo email', () => {

@@ -25,9 +25,8 @@ export class UsuariosService {
       throw new Error('Email já cadastrado.')
 
     this.usuarios.push(new Usuario(this.contadorUsuarios, novoUsuario.email))
-    this.contadorUsuarios++
 
-    return new UsuarioCadastradoDto(1, novoUsuario.email)
+    return new UsuarioCadastradoDto(this.contadorUsuarios++, novoUsuario.email)
   }
 
   listaUsuarios(): UsuarioCadastradoDto[] {
