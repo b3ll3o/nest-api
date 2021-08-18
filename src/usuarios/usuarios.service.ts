@@ -20,6 +20,10 @@ export class UsuariosService {
     if(novoUsuario.senha === undefined || novoUsuario.senha === null || novoUsuario.senha === '')
       throw new Error('Senha inválido.')
 
+    const usuarioCadastrado = this.usuarios.find(u => u.email === novoUsuario.email)
+    if(usuarioCadastrado)
+      throw new Error('Email já cadastrado.')
+
     this.usuarios.push(new Usuario(this.contadorUsuarios, novoUsuario.email))
     this.contadorUsuarios++
 

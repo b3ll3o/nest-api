@@ -60,11 +60,28 @@ describe('UsuariosService', () => {
     expect(() => service.adicionaNovoUsuario(novoUsuario)).toThrowError()
   })
 
-  //teste listaUsuarios
-  test('deve retorna todos os usuarios cadastrados', () => {
+  //teste cadastro
+  test('deve retorna o usuario recem cadastrado', () => {
     const novoUsuario = new NovoUsuarioDto(EMAIL, SENHA)
     service.adicionaNovoUsuario(novoUsuario)
     const usuarios = service.listaUsuarios()
-    expect(usuarios.length).toBeGreaterThan(0)
+    expect(usuarios[0].id).toBe(1)
+    expect(usuarios[0].email).toBe(EMAIL)
+  })
+
+  test('deve retorna os usuarios com identificação crescente', () => {
+    const novoUsuario = new NovoUsuarioDto(EMAIL, SENHA)
+    service.adicionaNovoUsuario(novoUsuario) 
+    const novoUsuario2 = new NovoUsuarioDto('outro@outro.com', SENHA)
+    service.adicionaNovoUsuario(novoUsuario2) 
+    const usuarios = service.listaUsuarios()
+    expect(usuarios[1].id).toBe(2)
+    expect(usuarios[1].email).toBe('outro@outro.com')
+  })
+
+  test('não deve poder adicionar dois usuarios com mesmo email', () => {
+    const novoUsuario = new NovoUsuarioDto(EMAIL, SENHA)
+    service.adicionaNovoUsuario(novoUsuario) 
+    expect(() => service.adicionaNovoUsuario(novoUsuario)).toThrowError()  
   })
 });
