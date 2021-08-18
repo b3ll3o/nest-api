@@ -43,4 +43,20 @@ describe('UsuariosService', () => {
     const novoUsuario = new NovoUsuarioDto('', SENHA)
     expect(() => service.adicionaNovoUsuario(novoUsuario)).toThrowError()
   })
+
+  //teste senha
+  test('deve jogar um Error caso senha seja undefined', () => {
+    const novoUsuario = new NovoUsuarioDto(EMAIL, undefined)
+    expect(() => service.adicionaNovoUsuario(novoUsuario)).toThrowError()
+  })
+
+  test('deve jogar um Error caso senha seja null', () => {
+    const novoUsuario = new NovoUsuarioDto(EMAIL, null)
+    expect(() => service.adicionaNovoUsuario(novoUsuario)).toThrowError()
+  })
+
+  test('deve jogar um Error caso senha seja vazio', () => {
+    const novoUsuario = new NovoUsuarioDto(EMAIL, '')
+    expect(() => service.adicionaNovoUsuario(novoUsuario)).toThrowError()
+  })
 });
