@@ -59,4 +59,12 @@ describe('UsuariosService', () => {
     const novoUsuario = new NovoUsuarioDto(EMAIL, '')
     expect(() => service.adicionaNovoUsuario(novoUsuario)).toThrowError()
   })
+
+  //teste listaUsuarios
+  test('deve retorna todos os usuarios cadastrados', () => {
+    const novoUsuario = new NovoUsuarioDto(EMAIL, SENHA)
+    service.adicionaNovoUsuario(novoUsuario)
+    const usuarios = service.listaUsuarios()
+    expect(usuarios.length).toBeGreaterThan(0)
+  })
 });
