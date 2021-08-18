@@ -1,3 +1,3 @@
 export class UsuarioCadastradoDto {
-  constructor(public id: number, public email: string) { }
+  constructor(public id: number, public email: string) {}
 }
