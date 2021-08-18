@@ -1,3 +1,5 @@
+import * as EmailValidator from 'email-validator';
+
 import { Injectable } from '@nestjs/common';
 import { NovoUsuarioDto, UsuarioCadastradoDto } from './application/dtos';
 import { Usuario } from './domain/models/usuario';
@@ -14,7 +16,7 @@ export class UsuariosService {
   }
 
   adicionaNovoUsuario(novoUsuario: NovoUsuarioDto): UsuarioCadastradoDto {
-    if(novoUsuario.email === undefined || novoUsuario.email === null || novoUsuario.email === '')
+    if(novoUsuario.email === undefined || novoUsuario.email === null || novoUsuario.email === '' || !EmailValidator.validate(novoUsuario.email))
       throw new Error('Email inválido.')
 
     if(novoUsuario.senha === undefined || novoUsuario.senha === null || novoUsuario.senha === '')

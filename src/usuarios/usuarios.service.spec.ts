@@ -5,6 +5,7 @@ import { UsuariosService } from './usuarios.service';
 describe('UsuariosService', () => {
   const EMAIL = 'email@email.com'
   const SENHA = 'senha'
+  const EMAIL_INVALIDO = 'email_invalido'
   
   let service: UsuariosService;
 
@@ -41,6 +42,11 @@ describe('UsuariosService', () => {
 
   test('deve jogar um Error caso email seja vazio', () => {
     const novoUsuario = new NovoUsuarioDto('', SENHA)
+    expect(() => service.adicionaNovoUsuario(novoUsuario)).toThrowError()
+  })
+
+  test('deve jogar um Error caso email seja inválido', () => {
+    const novoUsuario = new NovoUsuarioDto(EMAIL_INVALIDO, SENHA)
     expect(() => service.adicionaNovoUsuario(novoUsuario)).toThrowError()
   })
 
