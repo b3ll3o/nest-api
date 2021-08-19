@@ -45,7 +45,7 @@ export class UsuariosService {
     return this.usuarios.map((u) => new UsuarioCadastradoDto(u.id, u.email));
   }
 
-  buscaPorEmail(email: string): UsuarioAutenticavelDto {
+  async buscaPorEmail(email: string): Promise<UsuarioAutenticavelDto> {
     const usuario = this.usuarios.find(u => u.email === email)
     if(usuario)
       return new UsuarioAutenticavelDto(usuario.id, usuario.email, usuario.senha)
