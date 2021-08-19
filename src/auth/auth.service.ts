@@ -5,9 +5,9 @@ import { UsuariosService } from '../usuarios/usuarios.service';
 export class AuthService {
   constructor(private usuariosService: UsuariosService) {}
 
-  async validateUser(username: string, pass: string): Promise<any> {
-    const usuario = await this.usuariosService.buscaPorEmail(username);
-    if (usuario && usuario.senha === pass) {
+  async validateUser(email: string, senha: string): Promise<any> {
+    const usuario = await this.usuariosService.buscaPorEmail(email);
+    if (usuario && usuario.senha === senha) {
       usuario.senha = undefined
       return usuario;
     }
