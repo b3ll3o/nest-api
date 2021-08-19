@@ -6,8 +6,8 @@ import { Usuario } from './domain/models/usuario';
 
 @Injectable()
 export class UsuariosService {
-  usuarios: Usuario[];
-  contadorUsuarios: number;
+  private usuarios: Usuario[];
+  private contadorUsuarios: number;
 
   constructor() {
     this.usuarios = [];
