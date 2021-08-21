@@ -5,11 +5,14 @@ import { AuthService } from './auth.service';
 import { LocalStrategy } from './local.strategy';
 
 describe('AuthService', () => {
+  const EMAIL = 'email@email.com';
+  const SENHA = 'senha';
+
   let service: AuthService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      imports: [UsuariosModule, PassportModule],
+      imports: [UsuariosModule.register(false), PassportModule],
       providers: [AuthService, LocalStrategy],
     }).compile();
 
@@ -19,4 +22,9 @@ describe('AuthService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
+
+  test('deve retorna um usuario autenticavel', async () => {
+    const usuario = await service.validateUser(EMAIL, SENHA)
+    expect(usuario).toBeDefined()
+  })
 });

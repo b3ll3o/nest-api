@@ -3,7 +3,7 @@ import { UsuariosModule } from './usuarios/usuarios.module';
 import { AuthModule } from './auth/auth.module';
 
 @Module({
-  imports: [UsuariosModule, AuthModule],
+  imports: [UsuariosModule.register(), AuthModule],
   controllers: [],
   providers: [],
 })
