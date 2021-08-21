@@ -13,7 +13,7 @@ export class UsuariosController {
     try {
       return this.usuariosService.adicionaNovoUsuario(novoUsuario);
     } catch (e) {
-      return new BadRequestException(e.message);
+      return new BadRequestException(e);
     }
   }
 }
