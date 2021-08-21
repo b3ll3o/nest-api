@@ -8,7 +8,7 @@ export class AuthService {
   async validateUser(email: string, senha: string): Promise<any> {
     const usuario = await this.usuariosService.buscaPorEmail(email);
     if (usuario && usuario.senha === senha) {
-      usuario.senha = undefined
+      usuario.senha = undefined;
       return usuario;
     }
     return null;

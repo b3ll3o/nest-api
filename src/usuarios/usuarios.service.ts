@@ -36,7 +36,9 @@ export class UsuariosService {
     );
     if (usuarioCadastrado) throw new Error('Email já cadastrado.');
 
-    this.usuarios.push(new Usuario(this.contadorUsuarios, novoUsuario.email, novoUsuario.senha));
+    this.usuarios.push(
+      new Usuario(this.contadorUsuarios, novoUsuario.email, novoUsuario.senha),
+    );
 
     return new UsuarioCadastradoDto(this.contadorUsuarios++, novoUsuario.email);
   }
@@ -46,11 +48,14 @@ export class UsuariosService {
   }
 
   async buscaPorEmail(email: string): Promise<UsuarioAutenticavelDto> {
-    const usuario = this.usuarios.find(u => u.email === email)
-    if(usuario)
-      return new UsuarioAutenticavelDto(usuario.id, usuario.email, usuario.senha)
+    const usuario = this.usuarios.find((u) => u.email === email);
+    if (usuario)
+      return new UsuarioAutenticavelDto(
+        usuario.id,
+        usuario.email,
+        usuario.senha,
+      );
 
-    throw new Error('Usuario não encontrado.')
-      
+    throw new Error('Usuario não encontrado.');
   }
 }

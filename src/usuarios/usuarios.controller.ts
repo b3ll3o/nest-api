@@ -7,11 +7,13 @@ export class UsuariosController {
   constructor(private readonly usuariosService: UsuariosService) {}
 
   @Post()
-  adicionaNovoUsuario(@Body() novoUsuario: NovoUsuarioDto): UsuarioCadastradoDto | BadRequestException {
+  adicionaNovoUsuario(
+    @Body() novoUsuario: NovoUsuarioDto,
+  ): UsuarioCadastradoDto | BadRequestException {
     try {
-      return this.usuariosService.adicionaNovoUsuario(novoUsuario)
+      return this.usuariosService.adicionaNovoUsuario(novoUsuario);
     } catch (e) {
-      return new BadRequestException(e.message)
+      return new BadRequestException(e.message);
     }
   }
 }
