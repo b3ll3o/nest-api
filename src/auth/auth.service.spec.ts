@@ -27,4 +27,9 @@ describe('AuthService', () => {
     const usuario = await service.validateUser(EMAIL, SENHA)
     expect(usuario).toBeDefined()
   })
+
+  test('deve retorna null caso usuario não seja encontrado', async () => {
+    const usuario = await service.validateUser(undefined, undefined)
+    expect(usuario).toBeNull()
+  })
 });
