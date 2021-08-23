@@ -24,12 +24,12 @@ describe('AuthService', () => {
   });
 
   test('deve retorna um usuario autenticavel', async () => {
-    const usuario = await service.validateUser(EMAIL, SENHA)
-    expect(usuario).toBeDefined()
-  })
+    const usuario = await service.validateUser(EMAIL, SENHA);
+    expect(usuario).toBeDefined();
+  });
 
   test('deve retorna null caso usuario não seja encontrado', async () => {
-    const usuario = await service.validateUser(undefined, undefined)
-    expect(usuario).toBeNull()
-  })
+    const usuario = await service.validateUser(undefined, undefined);
+    expect(usuario).toBeNull();
+  });
 });

@@ -51,11 +51,7 @@ export class UsuariosServiceMock {
   }
 
   async buscaPorEmail(email: string): Promise<UsuarioAutenticavelDto> {
-    if(email === undefined)throw new Error('Usuario não encontrado.');
-    return new UsuarioAutenticavelDto(
-      1,
-      EMAIL,
-      SENHA,
-    );
+    if (email === undefined) throw new Error('Usuario não encontrado.');
+    return new UsuarioAutenticavelDto(1, EMAIL, SENHA);
   }
 }

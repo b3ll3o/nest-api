@@ -90,7 +90,7 @@ describe('UsuariosController', () => {
 
   //listaUsuarios
   test('deve retorna uma lista', async () => {
-    const usuarios = await controller.listaUsuarios()
-    expect(usuarios).toBeDefined()
-  })
+    const usuarios = await controller.listaUsuarios();
+    expect(usuarios).toBeDefined();
+  });
 });
