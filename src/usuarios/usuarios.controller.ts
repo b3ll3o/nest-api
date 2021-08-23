@@ -1,4 +1,4 @@
-import { BadRequestException, Body, Controller, Post } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Get, Post } from '@nestjs/common';
 import { NovoUsuarioDto, UsuarioCadastradoDto } from './application/dtos';
 import { UsuariosService } from './usuarios.service';
 
@@ -15,5 +15,10 @@ export class UsuariosController {
     } catch (e) {
       return new BadRequestException(e);
     }
+  }
+
+  @Get()
+  listaUsuarios(){
+    return this.usuariosService.listaUsuarios()
   }
 }
