@@ -5,6 +5,7 @@ import {
   Get,
   Post,
 } from '@nestjs/common';
+import { Public } from 'src/auth/jwt-auth.guard';
 import { NovoUsuarioDto, UsuarioCadastradoDto } from './application/dtos';
 import { UsuariosService } from './usuarios.service';
 
@@ -12,6 +13,7 @@ import { UsuariosService } from './usuarios.service';
 export class UsuariosController {
   constructor(private readonly usuariosService: UsuariosService) {}
 
+  @Public()
   @Post()
   adicionaNovoUsuario(
     @Body() novoUsuario: NovoUsuarioDto,

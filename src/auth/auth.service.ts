@@ -25,9 +25,9 @@ export class AuthService {
   }
 
   async login(usuario: UsuarioLoginDto): Promise<AcessTokenDto> {
-    const { email, senha } = usuario
-    if(await this.validateUser(email, senha))
-      return new AcessTokenDto(this.jwtService.sign({ email, senha }))
-    return null
+    const { email, senha } = usuario;
+    if (await this.validateUser(email, senha))
+      return new AcessTokenDto(this.jwtService.sign({ email, senha }));
+    return null;
   }
 }

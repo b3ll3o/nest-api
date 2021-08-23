@@ -5,11 +5,11 @@ import { Public } from './jwt-auth.guard';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService) {}
 
   @Public()
   @Post('login')
-  async login(@Body() usuarioLogin: UsuarioLoginDto){
-    return this.authService.login(usuarioLogin)
+  async login(@Body() usuarioLogin: UsuarioLoginDto) {
+    return this.authService.login(usuarioLogin);
   }
 }

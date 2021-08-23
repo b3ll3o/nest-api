@@ -1,3 +1,3 @@
 export class AcessTokenDto {
-  constructor(public acessToken: string) { }
+  constructor(public acessToken: string) {}
 }

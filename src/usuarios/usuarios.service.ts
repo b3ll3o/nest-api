@@ -11,8 +11,8 @@ export class UsuariosService {
   private contadorUsuarios: number;
 
   constructor() {
-    this.usuarios = [new Usuario(1, "teste@teste.com", "teste")];
-    this.contadorUsuarios = 2;
+    this.usuarios = [];
+    this.contadorUsuarios = 1;
   }
 
   adicionaNovoUsuario(novoUsuario: NovoUsuarioDto): UsuarioCadastradoDto {
