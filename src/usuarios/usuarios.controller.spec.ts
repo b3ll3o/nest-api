@@ -87,4 +87,10 @@ describe('UsuariosController', () => {
     ) as BadRequestException;
     expect(res.getStatus()).toBe(400);
   });
+
+  //listaUsuarios
+  test('deve retorna uma lista', async () => {
+    const usuarios = await controller.listaUsuarios()
+    expect(usuarios).toBeDefined()
+  })
 });
