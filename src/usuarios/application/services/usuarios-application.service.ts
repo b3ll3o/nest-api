@@ -6,7 +6,7 @@ import { Usuario } from '../../domain/models/usuario';
 import { UsuarioAutenticavelDto } from '../dtos/usuario-autenticavel.dto';
 
 @Injectable()
-export class UsuariosService {
+export class UsuariosApplicationService {
   private usuarios: Usuario[];
   private contadorUsuarios: number;
 

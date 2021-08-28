@@ -1,20 +1,20 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { NovoUsuarioDto } from '../../../application/dtos/novo-usuario.dto';
-import { UsuariosService } from '../../../application/services/usuarios.service';
+import { UsuariosApplicationService } from '../../../application/services/usuarios-application.service';
 
 describe('UsuariosService', () => {
   const EMAIL = 'email@email.com';
   const SENHA = 'senha';
   const EMAIL_INVALIDO = 'email_invalido';
 
-  let service: UsuariosService;
+  let service: UsuariosApplicationService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [UsuariosService],
+      providers: [UsuariosApplicationService],
     }).compile();
 
-    service = module.get<UsuariosService>(UsuariosService);
+    service = module.get<UsuariosApplicationService>(UsuariosApplicationService);
   });
 
   it('should be defined', () => {

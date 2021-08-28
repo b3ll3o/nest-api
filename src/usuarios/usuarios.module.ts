@@ -1,12 +1,12 @@
 import { Module, DynamicModule } from '@nestjs/common';
-import { UsuariosService } from './application/services/usuarios.service';
+import { UsuariosApplicationService } from './application/services/usuarios-application.service';
 import { UsuariosController } from './controllers/usuarios.controller';
 import { UsuariosServiceMock } from './tests/mocks/usuarios-service.mock';
 
 const connectionFactory = (padrao = true) => ({
-  provide: UsuariosService,
+  provide: UsuariosApplicationService,
   useFactory: () => {
-    return padrao ? new UsuariosService() : new UsuariosServiceMock();
+    return padrao ? new UsuariosApplicationService() : new UsuariosServiceMock();
   },
 });
 
@@ -16,7 +16,7 @@ export class UsuariosModule {
     return {
       module: UsuariosModule,
       providers: [connectionFactory(padrao)],
-      exports: [UsuariosService],
+      exports: [UsuariosApplicationService],
       controllers: [UsuariosController],
     };
   }

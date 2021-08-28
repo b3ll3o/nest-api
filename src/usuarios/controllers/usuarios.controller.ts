@@ -7,11 +7,11 @@ import {
 } from '@nestjs/common';
 import { Public } from '../../auth/jwt-auth.guard';
 import { NovoUsuarioDto, UsuarioCadastradoDto } from '../application/dtos';
-import { UsuariosService } from '../application/services/usuarios.service';
+import { UsuariosApplicationService } from '../application/services/usuarios-application.service';
 
 @Controller('usuarios')
 export class UsuariosController {
-  constructor(private readonly usuariosService: UsuariosService) {}
+  constructor(private readonly usuariosService: UsuariosApplicationService) {}
 
   @Public()
   @Post()
