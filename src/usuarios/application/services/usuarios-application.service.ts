@@ -1,4 +1,3 @@
-
 import { Injectable } from '@nestjs/common';
 import { NovoUsuarioDto, UsuarioCadastradoDto } from '../dtos';
 import { Usuario } from '../../domain/models/usuario';
@@ -7,24 +6,33 @@ import { UsuariosService } from '../../../usuarios/domain/services/usuarios.serv
 
 @Injectable()
 export class UsuariosApplicationService {
-  
-
-  constructor(private service: UsuariosService) { }
+  constructor(private service: UsuariosService) {}
 
   adicionaNovoUsuario(novoUsuario: NovoUsuarioDto): UsuarioCadastradoDto {
-    const usuario = new Usuario(undefined, novoUsuario.email, novoUsuario.senha)
+    const usuario = new Usuario(
+      undefined,
+      novoUsuario.email,
+      novoUsuario.senha,
+    );
 
-    const usuarioCadastrado = this.service.cadastraNovoUsuario(usuario)
+    const usuarioCadastrado = this.service.cadastraNovoUsuario(usuario);
 
-    return new UsuarioCadastradoDto(usuarioCadastrado.id, usuarioCadastrado.email);
+    return new UsuarioCadastradoDto(
+      usuarioCadastrado.id,
+      usuarioCadastrado.email,
+    );
   }
 
   listaUsuarios(): UsuarioCadastradoDto[] {
-    return this.service.listaUsuarios().map((u) => new UsuarioCadastradoDto(u.id, u.email));
+    return this.service
+      .listaUsuarios()
+      .map((u) => new UsuarioCadastradoDto(u.id, u.email));
   }
 
   async buscaPorEmail(email: string): Promise<UsuarioAutenticavelDto> {
-    const usuario = await this.service.buscaPorEmail(new Usuario(undefined, email, undefined))
+    const usuario = await this.service.buscaPorEmail(
+      new Usuario(undefined, email, undefined),
+    );
     if (usuario)
       return new UsuarioAutenticavelDto(
         usuario.id,

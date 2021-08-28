@@ -15,7 +15,9 @@ describe('UsuariosService', () => {
       providers: [UsuariosApplicationService, UsuariosService],
     }).compile();
 
-    service = module.get<UsuariosApplicationService>(UsuariosApplicationService);
+    service = module.get<UsuariosApplicationService>(
+      UsuariosApplicationService,
+    );
   });
 
   it('should be defined', () => {

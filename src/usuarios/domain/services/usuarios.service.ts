@@ -1,11 +1,10 @@
-import { Injectable } from "@nestjs/common";
-import { Usuario } from "../models/usuario";
+import { Injectable } from '@nestjs/common';
+import { Usuario } from '../models/usuario';
 
 import * as EmailValidator from 'email-validator';
 
-Injectable()
+Injectable();
 export class UsuariosService {
-
   private usuarios: Usuario[];
   private contadorUsuarios: number;
 
@@ -43,12 +42,14 @@ export class UsuariosService {
   }
 
   listaUsuarios(): Usuario[] {
-    return [ ...this.usuarios ]
+    return [...this.usuarios];
   }
 
   async buscaPorEmail(usuario: Usuario): Promise<Usuario> {
-    const usuarioEncontrado = this.usuarios.find((u) => u.email === usuario.email)
-    if(usuarioEncontrado) return usuarioEncontrado
+    const usuarioEncontrado = this.usuarios.find(
+      (u) => u.email === usuario.email,
+    );
+    if (usuarioEncontrado) return usuarioEncontrado;
     throw new Error('Usuario não encontrado.');
   }
 }
