@@ -3,6 +3,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { NovoUsuarioDto, UsuarioCadastradoDto } from '../../application/dtos';
 import { UsuariosController } from '../../controllers/usuarios.controller';
 import { UsuariosApplicationService } from '../../application/services/usuarios-application.service';
+import { UsuariosService } from '../../../usuarios/domain/services/usuarios.service';
 
 describe('UsuariosController', () => {
   const EMAIL = 'email@email.com';
@@ -14,7 +15,7 @@ describe('UsuariosController', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [UsuariosController],
-      providers: [UsuariosApplicationService],
+      providers: [UsuariosApplicationService, UsuariosService],
     }).compile();
 
     controller = module.get<UsuariosController>(UsuariosController);

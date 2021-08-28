@@ -1,4 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import { UsuariosService } from '../../../../usuarios/domain/services/usuarios.service';
 import { NovoUsuarioDto } from '../../../application/dtos/novo-usuario.dto';
 import { UsuariosApplicationService } from '../../../application/services/usuarios-application.service';
 
@@ -11,7 +12,7 @@ describe('UsuariosService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [UsuariosApplicationService],
+      providers: [UsuariosApplicationService, UsuariosService],
     }).compile();
 
     service = module.get<UsuariosApplicationService>(UsuariosApplicationService);
