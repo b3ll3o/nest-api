@@ -5,7 +5,7 @@ import {
   Get,
   Post,
 } from '@nestjs/common';
-import { Public } from 'src/auth/jwt-auth.guard';
+import { Public } from '../auth/jwt-auth.guard';
 import { NovoUsuarioDto, UsuarioCadastradoDto } from './application/dtos';
 import { UsuariosService } from './usuarios.service';
 
