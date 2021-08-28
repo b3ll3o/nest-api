@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { NovoUsuarioDto } from './application/dtos/novo-usuario.dto';
-import { UsuariosService } from './usuarios.service';
+import { NovoUsuarioDto } from '../../../application/dtos/novo-usuario.dto';
+import { UsuariosService } from '../../../application/services/usuarios.service';
 
 describe('UsuariosService', () => {
   const EMAIL = 'email@email.com';
@@ -66,7 +66,7 @@ describe('UsuariosService', () => {
     expect(() => service.adicionaNovoUsuario(novoUsuario)).toThrowError();
   });
 
-  //teste cadastro
+  //testa cadastro
   test('deve retorna o usuario recem cadastrado', () => {
     const novoUsuario = new NovoUsuarioDto(EMAIL, SENHA);
     service.adicionaNovoUsuario(novoUsuario);

@@ -1,8 +1,8 @@
 import { BadRequestException } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
-import { NovoUsuarioDto, UsuarioCadastradoDto } from './application/dtos';
-import { UsuariosController } from './usuarios.controller';
-import { UsuariosService } from './usuarios.service';
+import { NovoUsuarioDto, UsuarioCadastradoDto } from '../../application/dtos';
+import { UsuariosController } from '../../controllers/usuarios.controller';
+import { UsuariosService } from '../../application/services/usuarios.service';
 
 describe('UsuariosController', () => {
   const EMAIL = 'email@email.com';

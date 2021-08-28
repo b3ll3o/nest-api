@@ -1,7 +1,7 @@
 import { Module, DynamicModule } from '@nestjs/common';
-import { UsuariosService } from './usuarios.service';
-import { UsuariosController } from './usuarios.controller';
-import { UsuariosServiceMock } from './mocks/usuarios-service.mock';
+import { UsuariosService } from './application/services/usuarios.service';
+import { UsuariosController } from './controllers/usuarios.controller';
+import { UsuariosServiceMock } from './tests/mocks/usuarios-service.mock';
 
 const connectionFactory = (padrao = true) => ({
   provide: UsuariosService,

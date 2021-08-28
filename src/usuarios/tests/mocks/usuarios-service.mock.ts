@@ -1,9 +1,9 @@
 import * as EmailValidator from 'email-validator';
 
 import { Injectable } from '@nestjs/common';
-import { NovoUsuarioDto, UsuarioCadastradoDto } from '../application/dtos';
-import { Usuario } from '../domain/models/usuario';
-import { UsuarioAutenticavelDto } from '../application/dtos/usuario-autenticavel.dto';
+import { NovoUsuarioDto, UsuarioCadastradoDto } from '../../application/dtos';
+import { Usuario } from '../../domain/models/usuario';
+import { UsuarioAutenticavelDto } from '../../application/dtos/usuario-autenticavel.dto';
 
 const EMAIL = 'email@email.com';
 const SENHA = 'senha';
