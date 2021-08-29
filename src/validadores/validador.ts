@@ -1,3 +1,3 @@
 export type Validador = {
-  valido(item): boolean
-}
+  valido(item): boolean;
+};
