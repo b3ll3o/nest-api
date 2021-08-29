@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
+import { EmailValido } from '../../../usuarios/validadores/email/email-valido';
 import { Usuario } from '../models/usuario';
 
-import * as EmailValidator from 'email-validator';
 
 Injectable();
 export class UsuariosService {
@@ -15,10 +15,7 @@ export class UsuariosService {
 
   cadastraNovoUsuario(usuario: Usuario) {
     if (
-      usuario.email === undefined ||
-      usuario.email === null ||
-      usuario.email === '' ||
-      !EmailValidator.validate(usuario.email)
+      !new EmailValido().valido(usuario.email)
     )
       throw new Error('Email inválido.');
 

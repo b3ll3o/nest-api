@@ -1,9 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { UsuariosService } from '../../../../usuarios/domain/services/usuarios.service';
+import { UsuariosService } from '../../../domain/services/usuarios.service';
 import { NovoUsuarioDto } from '../../../application/dtos/novo-usuario.dto';
 import { UsuariosApplicationService } from '../../../application/services/usuarios-application.service';
 
-describe('UsuariosService', () => {
+describe('UsuariosApplicationService', () => {
   const EMAIL = 'email@email.com';
   const SENHA = 'senha';
   const EMAIL_INVALIDO = 'email_invalido';
