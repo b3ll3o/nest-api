@@ -1,9 +1,8 @@
 import { EmailValidador } from "../../../validadores/email/email-validador"
+import { EMAIL, EMAIL_INVALIDO } from "../../constantes"
 
-const EMAIL = 'email@email.com'
-const EMAIL_INVALIDO = 'email_invalido'
 
-describe('EmailValido', () => {
+describe('EmailValidador', () => {
 
   test('deve retorna true caso email seja válido', () => {
     expect(new EmailValidador().valido(EMAIL))
