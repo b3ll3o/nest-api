@@ -1,4 +1,4 @@
-import { UsuariosService } from "src/usuarios/domain/services/usuarios.service"
+import { UsuariosService } from "../../../../usuarios/domain/services/usuarios.service"
 
 const usuariosServiceFactory = () => new UsuariosService()
 
