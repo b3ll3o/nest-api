@@ -2,7 +2,7 @@ import * as EmailValidator from 'email-validator';
 import { Validador } from '../../../validadores/validador';
 
 
-export class EmailValido implements Validador {
+export class EmailValidador implements Validador {
 
   valido(email: string): boolean {
     return email !== undefined &&
