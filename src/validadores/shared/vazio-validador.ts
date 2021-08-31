@@ -1,7 +1,7 @@
-import { Validador } from '../validador';
+import { ValidadorEntity } from '../validador.entity';
 
-export class VazioValidador implements Validador {
-  valido(item: any): boolean {
+export class VazioValidador extends ValidadorEntity {
+  protected verificaValidade(item: any): boolean {
     return item !== '';
   }
 }
